@@ -9,5 +9,10 @@ stages {
   git branch: 'main', url: 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
   }
 }
+stage('build package'){
+    steps {
+      sh 'mvn package'
+    }
+  }
 }
 }
