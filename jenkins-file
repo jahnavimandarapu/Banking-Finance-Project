@@ -1,13 +1,11 @@
 pipeline {
   agent any
-    tools {
-      maven 'M2_HOME'
-          }
+  tools {
+    maven 'M2_HOME'
+        }
 stages {
   stage('git checkout') {
-    steps {
-      git 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
-          }
-        }
-      }
+  steps {
+   git 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
+  }
 }
