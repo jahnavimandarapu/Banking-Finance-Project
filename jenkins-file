@@ -6,7 +6,7 @@ pipeline {
 stages {
   stage('git checkout') {
   steps {
-   git 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
+  git branch: 'main', url: 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
   }
 }
 }
