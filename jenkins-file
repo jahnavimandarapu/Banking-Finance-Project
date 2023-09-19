@@ -9,3 +9,5 @@ stages {
    git 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
   }
 }
+}
+}
