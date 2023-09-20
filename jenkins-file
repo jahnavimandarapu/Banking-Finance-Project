@@ -3,8 +3,12 @@ pipeline {
   tools {
     maven 'M2_HOME'
         }
+  environment {
+    AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+              }
 stages {
-  stage('git checkout') {
+    stage('git checkout') {
   steps {
   git branch: 'main', url: 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
   }
@@ -32,5 +36,15 @@ stage ('docker image push'){
       sh 'docker push mandarapujahnavi/banking-app:1.0'   
     }
   }
+/*stage ('Configure test-server with terraform, Ansible and Deploying the app') {
+     steps {
+          dir('my-serverfiles') {
+          sh 'sudo chmod 600 ubunkey.pem'
+          sh 'terraform.init'
+          sh 'terraform validate'
+          sh 'terraform apply --auto-approve'
+          }
+          }
+        }*/
 }
 }
