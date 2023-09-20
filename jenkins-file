@@ -24,5 +24,13 @@ stage('building docker image'){
       sh 'docker build -t mandarapujahnavi/banking-app:1.0 .'
     }
     }
+stage ('docker image push'){
+    steps {
+      withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'hub2docker')]) {
+      sh 'docker login -u mandarapujahnavi -p ${hub2docker}'
+      }
+      sh 'docker push mandarapujahnavi/banking-app:1.0'   
+    }
+  }
 }
 }
