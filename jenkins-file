@@ -40,7 +40,7 @@ stage ('Configure test-server with terraform, Ansible and Deploying the app') {
      steps {
           dir('my-serverfiles') {
           sh 'sudo chmod 600 ubunkey.pem'
-          sh 'terraform.init'
+          sh 'terraform init'
           sh 'terraform validate'
           sh 'terraform apply --auto-approve'
           }
