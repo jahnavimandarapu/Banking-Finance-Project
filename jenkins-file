@@ -36,7 +36,7 @@ stage ('docker image push'){
       sh 'docker push mandarapujahnavi/banking-app:1.0'   
     }
   }
-/*stage ('Configure test-server with terraform, Ansible and Deploying the app') {
+stage ('Configure test-server with terraform, Ansible and Deploying the app') {
      steps {
           dir('my-serverfiles') {
           sh 'sudo chmod 600 ubunkey.pem'
@@ -45,6 +45,6 @@ stage ('docker image push'){
           sh 'terraform apply --auto-approve'
           }
           }
-        }*/
+        }
 }
 }
