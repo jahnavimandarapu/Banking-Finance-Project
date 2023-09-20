@@ -3,14 +3,16 @@
   become: true
   connection : ssh
   tasks:
-  - name: Updating ec2 instance
-    command : sudo apt update
-
   - name: Install Docker
-    command : sudo apt install docker.io -y
-
+    apt: name=docker.io state=present
   - name: Start Docker Service
-    command : sudo systemctl start docker
-
-  - name: Run the Bank application
-    command : sudo docker run -dt -p 8084:8081 mandarapujahnavi/banking-app:1.0
+    command: sudo systemctl start docker
+    become: yes
+    become_user: root
+  - name: docker run user
+    shell: usermod -a -G docker ubuntu
+  - name: check the docker version
+    command: "docker version"
+    register: docversion
+  - name: Deploy you application and run as container
+    command: docker run -itd -p 8084:8081 mandarapujahnavi/banking-app:1.0
