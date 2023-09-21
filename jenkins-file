@@ -13,7 +13,7 @@ stages {
   git branch: 'main', url: 'https://github.com/jahnavimandarapu/Banking-Finance-Project.git'
   }
 }
-stage('build package'){
+/* stage('build package'){
     steps {
       sh 'mvn package'
     }
@@ -35,7 +35,7 @@ stage ('docker image push'){
       }
       sh 'docker push mandarapujahnavi/banking-app:1.0'   
     }
-  }
+  } */
 stage ('Configure test-server with terraform, Ansible and Deploying the app') {
      steps {
           dir('my-serverfiles') {
